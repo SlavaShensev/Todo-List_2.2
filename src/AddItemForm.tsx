@@ -7,12 +7,9 @@ type AddItemFormPropsType = {
 }
 
 export const AddItemForm = React.memo((props: AddItemFormPropsType) => {
-
     console.log('AddItemForm is called')
-
     let [title, setTitle] = useState("")
     let [error, setError] = useState<string | null>(null)
-
     const addItem = () => {
         if (title.trim() !== "") {
             props.addItem(title);
@@ -21,11 +18,9 @@ export const AddItemForm = React.memo((props: AddItemFormPropsType) => {
             setError("Title is required");
         }
     }
-
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setTitle(e.currentTarget.value)
     }
-
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
         if (error !== null) {
             setError(null);
@@ -34,9 +29,8 @@ export const AddItemForm = React.memo((props: AddItemFormPropsType) => {
             addItem();
         }
     }
-
     return <div>
-        <TextField variant="outlined"
+        <TextField variant="outlined" // input
                    error={!!error}
                    value={title}
                    onChange={onChangeHandler}

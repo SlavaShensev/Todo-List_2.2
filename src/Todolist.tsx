@@ -25,9 +25,9 @@ type PropsType = {
     changeTaskTitle: (taskId: string, newTitle: string, todolistId: string) => void
 }
 
-export const Todolist = React.memo((props: PropsType) => {
+export const Todolist = (props: PropsType) => {
 
-    console.log('todoList is called')
+    console.log('Todolist is called')
 
     const addTask = useCallback((title: string) => {
         props.addTask(title, props.id);
@@ -95,6 +95,6 @@ export const Todolist = React.memo((props: PropsType) => {
             </Button>
         </div>
     </div>
-})
+}
 
 

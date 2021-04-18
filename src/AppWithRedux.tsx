@@ -38,7 +38,9 @@ export type TasksStateType = {
 }
 
 function AppWithRedux() {
-    console.log(' App is called ')
+
+    console.log('AppWithRedux is called')
+
     const dispatch = useDispatch()
 
     const todoLists = useSelector<AppRootState, Array<TodolistType>>(state => state.todoLists)
@@ -79,10 +81,10 @@ function AppWithRedux() {
         dispatch(action)
     }
 
-    const addTodolist = (title: string) => {
+    const addTodolist = useCallback( (title: string) => {
         const action = addTodolistAC(title)
         dispatch(action)
-    }
+    }, [])
 
     return (
         <div className="App">
